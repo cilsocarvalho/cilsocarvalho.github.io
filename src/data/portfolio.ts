@@ -130,6 +130,7 @@ export const skillGroups = [
 
 export const projects = [
   {
+    "slug": "finops",
     "title": "FinOps Cost Visibility",
     "icon": "LineChart",
     "category": "Implemented",
@@ -148,6 +149,7 @@ export const projects = [
     "details": "My contribution: cost-model integration, reporting controls, exports, and release validation. Internal financial data and account identifiers are excluded."
   },
   {
+    "slug": "analytics-library",
     "title": "CDP Analytics Library",
     "icon": "Database",
     "category": "Implemented",
@@ -167,6 +169,7 @@ export const projects = [
     "details": "My contribution: portal development, cloud infrastructure, integrations, and deployment validation. Corporate reports and member data are excluded."
   },
   {
+    "slug": "aiops",
     "title": "AI Assisted Operations",
     "icon": "GitBranch",
     "category": "Implemented workflow",
@@ -186,6 +189,7 @@ export const projects = [
     "details": "My contribution: operational data integration and AI-assisted automation. The agent advises on incidents and best practices; it does not execute remediation. No unverified model-performance claims are made."
   },
   {
+    "slug": "hybrid-connectivity",
     "title": "Hybrid AWS Connectivity",
     "icon": "Network",
     "category": "Implemented and assessed",
@@ -204,6 +208,7 @@ export const projects = [
     "details": "My contribution: network analysis, infrastructure changes, and connectivity checks. A reverse-tunnel bridge was assessed as an alternative; it was not deployed or verified in the documented work."
   },
   {
+    "slug": "sales-portal",
     "title": "Sales Portal Migration Architecture",
     "icon": "ServerCog",
     "category": "Architecture proposal",
@@ -222,6 +227,7 @@ export const projects = [
     "details": "My contribution: architecture documentation and migration planning. This is a proposal, not a completed production migration. Internal topology and infrastructure identifiers are excluded."
   },
   {
+    "slug": "gcp-data",
     "title": "GCP Data Operations",
     "icon": "Database",
     "category": "Operational support",

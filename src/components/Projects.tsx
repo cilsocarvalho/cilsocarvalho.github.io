@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import CaseStudy from "@/components/CaseStudy";
 import { projects } from "@/data/portfolio";
 import {
   ServerCog, Boxes, LineChart, Database, Network, GitBranch, CheckCircle2, LucideIcon,
@@ -50,6 +51,7 @@ const Projects = () => (
               <summary className="cursor-pointer font-medium text-primary">Contribution and scope</summary>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.details}</p>
             </details>
+            <CaseStudy slug={project.slug} />
             <div className="mt-5 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span key={tag} className="rounded-md bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
