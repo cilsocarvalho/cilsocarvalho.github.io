@@ -23,7 +23,7 @@ const Hero = () => (
       </div>
       <aside className="relative rounded-2xl border border-primary/20 bg-[#183b38] p-6 shadow-xl lg:col-span-5 sm:p-7">
         <div className="mb-5 flex items-center justify-between text-xs font-semibold uppercase tracking-[.18em] text-white/75"><span>Architecture in practice</span><span>01 / AIOps</span></div>
-        <a href="?project=aiops" className="mb-6 block overflow-hidden rounded-lg border border-white/20 bg-white" aria-label="Explore AIOps architecture"><img src="/architecture/aiops.svg" width="1280" height="820" alt="AIOps architecture with official AWS Lambda, Bedrock, DynamoDB and API Gateway icons" className="w-full" /></a>
+        <a href="?project=aiops" className="mb-6 block overflow-hidden rounded-lg border border-white/20 bg-white" aria-label="Explore AIOps architecture"><img src="/architecture/aiops.svg?v=aws-2026" width="1280" height="820" alt="AIOps architecture with official AWS Lambda, Bedrock, DynamoDB and API Gateway icons" className="w-full" /></a>
         <p className="mb-2 text-xs font-semibold uppercase tracking-[.2em] text-white/65">Engineering focus</p>
         {focusAreas.map(({icon:Icon,title,text},index)=>(<div key={title} className={`flex gap-4 py-4 ${index ? "border-t border-white/15" : ""}`}><div className="mt-1 rounded-lg bg-white/10 p-2.5 text-[#b4e3d3]"><Icon className="h-5 w-5" /></div><div><h2 className="text-base font-semibold text-white">{title}</h2><p className="mt-1 text-sm leading-relaxed text-white/75">{text}</p></div></div>))}
         <a href="#certifications" className="inline-flex items-center gap-2 border-t border-white/15 pt-5 text-sm font-medium text-[#b4e3d3]">AWS certified · View credentials <ArrowUpRight className="h-4 w-4" /></a>

@@ -27,7 +27,7 @@ const Projects = () => (
           >
 
             <Link to={`?project=${project.slug}`} className="mb-7 block overflow-hidden rounded-xl border border-border bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label={`Preview architecture: ${project.title}`}>
-              <img src={`/architecture/${project.slug}.svg`} alt={`${project.title} architecture preview`} width="1280" height="820" loading="lazy" className="w-full transition-transform duration-500 group-hover:scale-[1.025]" />
+              <img src={`/architecture/${project.slug}.svg?v=aws-2026`} alt={`${project.title} architecture preview`} width="1280" height="820" loading="lazy" className="w-full transition-transform duration-500 group-hover:scale-[1.025]" />
             </Link>
             <div className="mb-5 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-gradient-primary group-hover:text-primary-foreground">

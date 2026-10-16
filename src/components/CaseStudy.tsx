@@ -29,8 +29,8 @@ const CaseStudy = ({ slug }: { slug: string }) => {
           <DialogDescription className="leading-relaxed">{study.problem}</DialogDescription>
         </DialogHeader>
         <figure className="mt-3 min-w-0 max-w-full">
-          <div className="max-w-full overflow-x-auto rounded-xl border border-border"><img src={`/architecture/${study.slug}.svg`} alt={`${study.title}: ${study.nodes.join(" → ")}`} width="1280" height="820" className="min-w-[800px] w-full" /></div>
-          <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{study.diagramCaption} <a href={`/architecture/${study.slug}.svg`} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline">Open full-size diagram</a></figcaption>
+          <div className="max-w-full overflow-x-auto rounded-xl border border-border"><img src={`/architecture/${study.slug}.svg?v=aws-2026`} alt={`${study.title}: ${study.nodes.join(" → ")}`} width="1280" height="820" className="min-w-[800px] w-full" /></div>
+          <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{study.diagramCaption} <a href={`/architecture/${study.slug}.svg?v=aws-2026`} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline">Open full-size diagram</a></figcaption>
         </figure>
         {study.slug !== "gcp-data" && <p className="text-xs text-muted-foreground">Service icons from the <a href="https://aws.amazon.com/architecture/icons/" target="_blank" rel="noopener noreferrer" className="text-primary underline">official AWS Architecture Icons</a>. Public reference view; no AWS endorsement implied.</p>}
         <div className="grid gap-6 sm:grid-cols-2">
@@ -60,7 +60,7 @@ const CaseStudy = ({ slug }: { slug: string }) => {
           {study.boundary}
         </aside>
         <Button variant="outline" asChild className="w-fit">
-          <a href={`/architecture/${study.slug}.svg`} download><Download className="h-4 w-4" /> Download architecture diagram</a>
+          <a href={`/architecture/${study.slug}.svg?v=aws-2026`} download><Download className="h-4 w-4" /> Download architecture diagram</a>
         </Button>
       </DialogContent>
     </Dialog>
