@@ -16,13 +16,13 @@ const Projects = () => (
     title="Selected cloud and automation projects"
     subtitle="My contributions, technical decisions, and delivery status across cloud and automation projects."
   >
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {projects.map((project) => {
         const Icon = icons[project.icon] ?? ServerCog;
         return (
           <article
             key={project.title}
-            className="glass-card neon-border group relative flex flex-col overflow-hidden rounded-2xl p-7"
+            className="glass-card neon-border group relative flex flex-col overflow-hidden rounded-xl p-6"
           >
 
             <div className="mb-5 flex items-center gap-4">

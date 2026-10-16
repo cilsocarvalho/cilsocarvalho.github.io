@@ -5,11 +5,11 @@ export const EMAIL = "cilsocarvalho@gmail.com";
 export const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Stack", href: "#stack" },
-  { label: "Skills", href: "#skills" },
+  { label: "Expertise", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
 
+  { label: "Credentials", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 

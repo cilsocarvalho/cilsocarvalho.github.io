@@ -22,15 +22,15 @@ const CaseStudy = ({ slug }: { slug: string }) => {
           Read case study <ArrowUpRight className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-4xl overflow-y-auto rounded-2xl border-primary/20 bg-background p-5 sm:p-8">
-        <DialogHeader className="pr-5 text-left">
+      <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-6xl overflow-x-hidden overflow-y-auto rounded-2xl border-primary/20 bg-background p-5 sm:p-8">
+        <DialogHeader className="min-w-0 pr-5 text-left">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">{study.status}</p>
           <DialogTitle className="font-display text-2xl leading-snug sm:text-3xl">{study.title}</DialogTitle>
           <DialogDescription className="leading-relaxed">{study.problem}</DialogDescription>
         </DialogHeader>
-        <figure className="mt-3">
-          <img src={`/architecture/${study.slug}.svg`} alt={`${study.title}: ${study.nodes.join(" → ")}`} width="760" height="570" className="w-full rounded-xl border border-border" />
-          <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{study.diagramCaption}</figcaption>
+        <figure className="mt-3 min-w-0 max-w-full">
+          <div className="max-w-full overflow-x-auto rounded-xl border border-border"><img src={`/architecture/${study.slug}.svg`} alt={`${study.title}: ${study.nodes.join(" → ")}`} width="1280" height="820" className="min-w-[800px] w-full" /></div>
+          <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{study.diagramCaption} <a href={`/architecture/${study.slug}.svg`} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline">Open full-size diagram</a></figcaption>
         </figure>
         <div className="grid gap-6 sm:grid-cols-2">
           <section>

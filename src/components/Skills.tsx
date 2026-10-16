@@ -10,8 +10,8 @@ const Skills = () => (
   <Section
     id="skills"
     eyebrow="Skills"
-    title="Tools & technologies I work with"
-    subtitle="A practical, production-focused toolkit spanning cloud platforms, automation, data, and operations."
+    title="Engineering expertise"
+    subtitle="Cloud, delivery, data, and operations — connected to the project work above."
   >
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {skillGroups.map((group) => {
