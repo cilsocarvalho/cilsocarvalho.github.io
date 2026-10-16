@@ -39,3 +39,8 @@
   .font-display { font-family: 'Work Sans',sans-serif; }
 }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+
+.hero-editorial { background: radial-gradient(ellipse at 10% 10%,hsl(170 35% 88% / .45),transparent 55%),hsl(var(--background)); }
+.hero-editorial::before { content: ''; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(hsl(170 30% 25% / .04) 1px,transparent 1px),linear-gradient(90deg,hsl(170 30% 25% / .04) 1px,transparent 1px); background-size:64px 64px; mask-image:linear-gradient(to bottom,black,transparent); }
+.hero-editorial > div { position:relative; }
+#projects { background: hsl(40 15% 93%); }

@@ -1,5 +1,6 @@
 import Section from "@/components/Section";
 import CaseStudy from "@/components/CaseStudy";
+import { Link } from "react-router-dom";
 import { projects } from "@/data/portfolio";
 import {
   ServerCog, Boxes, LineChart, Database, Network, GitBranch, CheckCircle2, LucideIcon,
@@ -16,15 +17,18 @@ const Projects = () => (
     title="Selected cloud and automation projects"
     subtitle="My contributions, technical decisions, and delivery status across cloud and automation projects."
   >
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-8 md:grid-cols-2">
       {projects.map((project) => {
         const Icon = icons[project.icon] ?? ServerCog;
         return (
           <article
             key={project.title}
-            className="glass-card neon-border group relative flex flex-col overflow-hidden rounded-xl p-6"
+            className="glass-card neon-border group relative flex flex-col overflow-hidden rounded-2xl p-6 sm:p-8"
           >
 
+            <Link to={`?project=${project.slug}`} className="mb-7 block overflow-hidden rounded-xl border border-border bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label={`Preview architecture: ${project.title}`}>
+              <img src={`/architecture/${project.slug}.svg`} alt={`${project.title} architecture preview`} width="1280" height="820" loading="lazy" className="w-full transition-transform duration-500 group-hover:scale-[1.025]" />
+            </Link>
             <div className="mb-5 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-gradient-primary group-hover:text-primary-foreground">
                 <Icon className="h-6 w-6" />

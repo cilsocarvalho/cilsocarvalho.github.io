@@ -32,6 +32,7 @@ const CaseStudy = ({ slug }: { slug: string }) => {
           <div className="max-w-full overflow-x-auto rounded-xl border border-border"><img src={`/architecture/${study.slug}.svg`} alt={`${study.title}: ${study.nodes.join(" → ")}`} width="1280" height="820" className="min-w-[800px] w-full" /></div>
           <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{study.diagramCaption} <a href={`/architecture/${study.slug}.svg`} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline">Open full-size diagram</a></figcaption>
         </figure>
+        {study.slug !== "gcp-data" && <p className="text-xs text-muted-foreground">Service icons from the <a href="https://aws.amazon.com/architecture/icons/" target="_blank" rel="noopener noreferrer" className="text-primary underline">official AWS Architecture Icons</a>. Public reference view; no AWS endorsement implied.</p>}
         <div className="grid gap-6 sm:grid-cols-2">
           <section>
             <h3 className="mb-2 font-display text-lg font-semibold">My contribution</h3>
