@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Ocean Deep palette */
+    --background: 213 68% 14%;
+    --foreground: 210 40% 98%;
+
+    --card: 206 55% 19%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 213 60% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Teal accent #5cbdb9 */
+    --primary: 178 42% 55%;
+    --primary-foreground: 213 68% 12%;
+
+    --secondary: 206 62% 27%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 206 45% 22%;
+    --muted-foreground: 200 25% 70%;
+
+    /* #2d8a9e */
+    --accent: 191 56% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 206 50% 24%;
+    --input: 206 50% 24%;
+    --ring: 178 42% 55%;
+
+    --radius: 1rem;
+
+    --teal: 178 42% 55%;
+    --aqua: 191 56% 40%;
+    --steel: 206 62% 27%;
+
+    --cyan: 178 42% 55%;
+    --blue: 191 56% 40%;
+    --purple: 178 50% 62%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(191 56% 40%), hsl(178 42% 55%));
+    --gradient-text: linear-gradient(120deg, hsl(210 40% 98%), hsl(178 50% 62%));
+    --gradient-surface: linear-gradient(160deg, hsl(206 55% 20% / 0.9), hsl(213 68% 12% / 0.9));
+    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(191 56% 40% / 0.28), transparent 70%);
+
+    --shadow-glow: 0 0 40px -8px hsl(178 42% 55% / 0.4);
+    --shadow-card: 0 24px 60px -24px hsl(213 80% 4% / 0.85);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-text);
+  }
+
+  .glow-card {
+    background-image: var(--gradient-surface);
+    box-shadow: var(--shadow-card);
+    @apply border border-border/60 backdrop-blur-sm transition-all duration-300;
+  }
+
+  .glow-card:hover {
+    @apply border-primary/40 -translate-y-1;
+    box-shadow: var(--shadow-card), 0 0 30px -10px hsl(var(--primary) / 0.4);
+  }
+
+  /* Glassmorphism card */
+  .glass-card {
+    background: linear-gradient(160deg, hsl(206 55% 22% / 0.5), hsl(213 68% 10% / 0.45));
+    box-shadow: var(--shadow-card), inset 0 1px 0 0 hsl(210 40% 98% / 0.06);
+    @apply rounded-2xl border border-white/10 backdrop-blur-xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply -translate-y-1.5 border-primary/40;
+    box-shadow: var(--shadow-card), 0 0 44px -8px hsl(var(--primary) / 0.45), inset 0 1px 0 0 hsl(210 40% 98% / 0.08);
+  }
+
+  /* Animated grid background */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(178 42% 55% / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(178 42% 55% / 0.06) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  .neon-border {
+    position: relative;
+  }
+  .neon-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .neon-border:hover::before {
+    opacity: 1;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 34px hsl(var(--primary) / 0.5);
+  }
+
+  .glow-bar {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.7);
+  }
+}
+
+@layer utilities {
+  .animate-grid-pan {
+    animation: grid-pan 20s linear infinite;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

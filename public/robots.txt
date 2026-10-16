@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cilsocarvalho.github.io/sitemap.xml
