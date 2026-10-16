@@ -286,12 +286,95 @@ export const timeline = [
 ];
 
 export const certifications = [
-  { name: "HashiCorp Certified: Terraform Associate", issuer: "HashiCorp", status: "Awarded 2023" },
-  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", status: "Awarded 2022" },
-  { name: "AWS Certified Solutions Architect – Associate", issuer: "Amazon Web Services", status: "Awarded 2024" },
-  { name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft", status: "Awarded 2023" },
-  { name: "Oracle Cloud Infrastructure Foundations", issuer: "Oracle", status: "Awarded 2023" },
-  { name: "Oracle Cloud Data Management Foundations", issuer: "Oracle", status: "Awarded 2023" },
+  {
+    "name": "AWS Certified Solutions Architect – Associate",
+    "issuer": "Amazon Web Services",
+    "status": "Valid until 2 Aug 2027",
+    "issued": "Issued 2 Aug 2024",
+    "url": "https://www.credly.com/badges/9c02a2f3-107b-46a3-8b1e-8bfbcf747ff0",
+    "expired": false
+  },
+  {
+    "name": "AWS Certified Cloud Practitioner",
+    "issuer": "Amazon Web Services",
+    "status": "Valid until 2 Aug 2027",
+    "issued": "Issued 8 Oct 2022",
+    "url": "https://www.credly.com/badges/aa332bb5-b63b-41eb-8557-986e988c490e",
+    "expired": false
+  },
+  {
+    "name": "Microsoft Certified: Azure Fundamentals",
+    "issuer": "Microsoft",
+    "status": "Issued 27 May 2023",
+    "issued": "No expiry shown on badge",
+    "url": "https://www.credly.com/badges/e7b69824-0334-4faa-96ab-31288aaac450",
+    "expired": false
+  },
+  {
+    "name": "HashiCorp Certified: Terraform Associate (002)",
+    "issuer": "HashiCorp · Credly issuer: IBM Professional Certification",
+    "status": "Expired 21 Apr 2025",
+    "issued": "Issued 21 Apr 2023",
+    "url": "https://www.credly.com/badges/d3982f18-d102-4586-9489-69cd2c609c60",
+    "expired": true
+  }
+];
+
+export const trainingBadges = [
+  {
+    "name": "LFEL1004: Authentication & Authorization for Web/API",
+    "issuer": "The Linux Foundation",
+    "status": "Issued 1 Jan 2026",
+    "url": "https://www.credly.com/badges/fe735064-0913-4fd5-9519-3bfe63afaa44"
+  },
+  {
+    "name": "LFD140: GitHub for Open Standards Development",
+    "issuer": "The Linux Foundation",
+    "status": "Issued 6 Oct 2025",
+    "url": "https://www.credly.com/badges/a79023c7-878e-4153-88a9-0d2011c5c06e"
+  },
+  {
+    "name": "LFEL1009: Getting Started with OpenTofu",
+    "issuer": "The Linux Foundation",
+    "status": "Issued 8 Jul 2025",
+    "url": "https://www.credly.com/badges/cec0ec6b-2072-4a24-840b-88f0d279d37d"
+  },
+  {
+    "name": "LFS167: Introduction to Jenkins",
+    "issuer": "The Linux Foundation",
+    "status": "Issued 8 Nov 2024",
+    "url": "https://www.credly.com/badges/aa104ab5-410d-4440-b787-c1deb9810531"
+  },
+  {
+    "name": "AWS Educate Getting Started with Security",
+    "issuer": "Amazon Web Services",
+    "status": "Issued 12 Jun 2024",
+    "url": "https://www.credly.com/badges/a0d02742-b464-4f07-8607-f6020be5284e"
+  },
+  {
+    "name": "AWS Knowledge: Cloud Essentials",
+    "issuer": "Amazon Web Services",
+    "status": "Issued 15 Feb 2024",
+    "url": "https://www.credly.com/badges/aab91a00-3294-452d-b997-09558db00d6d"
+  },
+  {
+    "name": "AWS Educate Getting Started with Storage",
+    "issuer": "Amazon Web Services",
+    "status": "Issued 14 Dec 2022",
+    "url": "https://www.credly.com/badges/c903f7d9-2dfa-4b58-8801-64a54ab80464"
+  },
+  {
+    "name": "AWS Educate Getting Started with Compute",
+    "issuer": "Amazon Web Services",
+    "status": "Issued 12 Dec 2022",
+    "url": "https://www.credly.com/badges/cc9586dc-67fa-402d-a53f-409150deca96"
+  },
+  {
+    "name": "AWS Educate Getting Started with Networking",
+    "issuer": "Amazon Web Services",
+    "status": "Issued 11 Dec 2022",
+    "url": "https://www.credly.com/badges/1738b56c-1a0f-4cc8-ab01-9fe23b171f22"
+  }
 ];
 
 // ---- LinkedIn Profile Update content ----
