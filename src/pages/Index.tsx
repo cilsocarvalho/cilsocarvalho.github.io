@@ -24,7 +24,7 @@ const Index = () => (
     </main>
     <footer className="border-t border-border/60 py-8">
       <div className="container flex flex-col items-center justify-between gap-3 text-sm text-muted-foreground sm:flex-row">
-        <span>© {new Date().getFullYear()} Cilso Carvalho — Cloud Engineer</span>
+        <span>© {new Date().getFullYear()} Cilso Carvalho — Cloud &amp; DevOps Engineer</span>
         <div className="flex gap-4">
           <a href={`mailto:${EMAIL}`} className="hover:text-foreground">{EMAIL}</a>
           <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">LinkedIn</a>

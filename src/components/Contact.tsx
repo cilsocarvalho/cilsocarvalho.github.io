@@ -12,7 +12,7 @@ const Contact = () => (
           Let&apos;s connect and build <span className="gradient-text">reliable cloud platforms</span>.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-          Available for Cloud, DevOps, Platform Engineering, and Data Infrastructure opportunities.
+          Open to senior Cloud, DevOps and Platform Engineering roles — remote from Brazil (UTC-3), full overlap with US business hours.
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

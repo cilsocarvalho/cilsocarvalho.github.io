@@ -13,7 +13,7 @@ export const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const heroBadges = ["AWS", "GCP", "Kubernetes", "Terraform", "DataOps", "FinOps"];
+export const heroBadges = ["AWS", "Kubernetes", "Terraform", "CI/CD", "Observability", "FinOps"];
 
 // Brand technology stack — iconKey maps to react-icons in TechStack.tsx
 export const techStack = [
@@ -130,45 +130,6 @@ export const skillGroups = [
 
 export const projects = [
   {
-    "slug": "finops",
-    "title": "FinOps Cost Visibility",
-    "icon": "LineChart",
-    "category": "Implemented",
-    "summary": "Monthly cloud costs by project, account, and environment.",
-    "description": "Developed project cost views, chargeback reporting, and Excel-compatible exports. A shared cost model keeps dashboard totals and exported reports consistent.",
-    "outcomes": [
-      "Monthly cost views",
-      "Consistent dashboard and export totals",
-      "Validated release"
-    ],
-    "tags": [
-      "AWS",
-      "FinOps",
-      "CloudFront"
-    ],
-    "details": "My contribution: cost-model integration, reporting controls, exports, and release validation. Internal financial data and account identifiers are excluded."
-  },
-  {
-    "slug": "analytics-library",
-    "title": "CDP Analytics Library",
-    "icon": "Database",
-    "category": "Implemented",
-    "summary": "Authenticated portal for analytics and business reporting.",
-    "description": "Developed a Vue portal supported by Terraform-managed AWS infrastructure, with Cognito authentication, report delivery, and protected email notification APIs.",
-    "outcomes": [
-      "Cognito authentication",
-      "Protected API and SES notifications",
-      "Shared reporting interface"
-    ],
-    "tags": [
-      "Terraform",
-      "Vue",
-      "Cognito",
-      "Lambda"
-    ],
-    "details": "My contribution: portal development, cloud infrastructure, integrations, and deployment validation. Corporate reports and member data are excluded."
-  },
-  {
     "slug": "aiops",
     "title": "AI Assisted Operations",
     "icon": "GitBranch",
@@ -206,6 +167,45 @@ export const projects = [
       "Terraform"
     ],
     "details": "My contribution: network analysis, infrastructure changes, and connectivity checks. A reverse-tunnel bridge was assessed as an alternative; it was not deployed or verified in the documented work."
+  },
+  {
+    "slug": "finops",
+    "title": "FinOps Cost Visibility",
+    "icon": "LineChart",
+    "category": "Implemented",
+    "summary": "Monthly cloud costs by project, account, and environment.",
+    "description": "Developed project cost views, chargeback reporting, and Excel-compatible exports. A shared cost model keeps dashboard totals and exported reports consistent.",
+    "outcomes": [
+      "Monthly cost views",
+      "Consistent dashboard and export totals",
+      "Validated release"
+    ],
+    "tags": [
+      "AWS",
+      "FinOps",
+      "CloudFront"
+    ],
+    "details": "My contribution: cost-model integration, reporting controls, exports, and release validation. Internal financial data and account identifiers are excluded."
+  },
+  {
+    "slug": "analytics-library",
+    "title": "CDP Analytics Library",
+    "icon": "Database",
+    "category": "Implemented",
+    "summary": "Authenticated portal for analytics and business reporting.",
+    "description": "Developed a Vue portal supported by Terraform-managed AWS infrastructure, with Cognito authentication, report delivery, and protected email notification APIs.",
+    "outcomes": [
+      "Cognito authentication",
+      "Protected API and SES notifications",
+      "Shared reporting interface"
+    ],
+    "tags": [
+      "Terraform",
+      "Vue",
+      "Cognito",
+      "Lambda"
+    ],
+    "details": "My contribution: portal development, cloud infrastructure, integrations, and deployment validation. Corporate reports and member data are excluded."
   },
   {
     "slug": "sales-portal",
@@ -292,7 +292,8 @@ export const certifications = [
     "status": "Valid until 2 Aug 2027",
     "issued": "Issued 2 Aug 2024",
     "url": "https://www.credly.com/badges/9c02a2f3-107b-46a3-8b1e-8bfbcf747ff0",
-    "expired": false
+    "expired": false,
+    "tier": "primary"
   },
   {
     "name": "AWS Certified Cloud Practitioner",
@@ -300,15 +301,17 @@ export const certifications = [
     "status": "Valid until 2 Aug 2027",
     "issued": "Issued 8 Oct 2022",
     "url": "https://www.credly.com/badges/aa332bb5-b63b-41eb-8557-986e988c490e",
-    "expired": false
+    "expired": false,
+    "tier": "secondary"
   },
   {
     "name": "Microsoft Certified: Azure Fundamentals",
     "issuer": "Microsoft",
-    "status": "Issued 27 May 2023",
-    "issued": "No expiry shown on badge",
+    "status": "No expiry shown on badge",
+    "issued": "Issued 27 May 2023",
     "url": "https://www.credly.com/badges/e7b69824-0334-4faa-96ab-31288aaac450",
-    "expired": false
+    "expired": false,
+    "tier": "secondary"
   },
   {
     "name": "HashiCorp Certified: Terraform Associate (002)",
@@ -316,7 +319,8 @@ export const certifications = [
     "status": "Expired 21 Apr 2025",
     "issued": "Issued 21 Apr 2023",
     "url": "https://www.credly.com/badges/d3982f18-d102-4586-9489-69cd2c609c60",
-    "expired": true
+    "expired": true,
+    "tier": "secondary"
   }
 ];
 
@@ -379,7 +383,7 @@ export const trainingBadges = [
 
 // ---- LinkedIn Profile Update content ----
 export const linkedinHeadline =
-  "Cloud Engineer | AWS & GCP | DevOps | Kubernetes | Terraform | BigQuery | Airflow | Infrastructure Automation";
+  "Senior Cloud & DevOps Engineer | AWS · Terraform · Kubernetes (EKS) | AWS Certified Solutions Architect | Remote from Brazil";
 
 export const linkedinAbout = `I am an IT professional with strong experience in infrastructure, cloud operations, DevOps automation, database environments, and data platforms.
 
