@@ -249,9 +249,9 @@ export const projects = [
 
 export const timeline = [
   {
-    "role": "Cloud Systems Specialist",
+    "role": "System Specialist (Cloud Infrastructure)",
     "company": "LG CNS",
-    "period": "2024 \u2013 Present",
+    "period": "Sep 2025 \u2013 Present",
     "points": [
       "Build and maintain AWS infrastructure using Terraform.",
       "Work with GitHub Actions, Argo CD, Kubernetes, and EKS deployments.",
@@ -259,9 +259,9 @@ export const timeline = [
     ]
   },
   {
-    "role": "Cloud Administrator & Application Operations Lead",
-    "company": "Algar Tech",
-    "period": "2019 \u2013 2024",
+    "role": "Cloud Administrator \u2014 Epson do Brasil account",
+    "company": "Positivo S+ (2022\u20132025) \u00b7 Algar Tech (2019\u20132022)",
+    "period": "2019 \u2013 2025",
     "points": [
       "Led migration of critical Epson do Brasil applications from on-premises infrastructure to AWS.",
       "Maintained AWS workloads, reusable Terraform modules, hybrid networking, Linux, Oracle, and MySQL."
