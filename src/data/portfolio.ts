@@ -251,36 +251,49 @@ export const timeline = [
   {
     "role": "System Specialist (Cloud Infrastructure)",
     "company": "LG CNS",
-    "period": "Sep 2025 \u2013 Present",
+    "period": "Sep 2025 – Present",
     "points": [
-      "Build and maintain AWS infrastructure using Terraform.",
-      "Work with GitHub Actions, Argo CD, Kubernetes, and EKS deployments.",
-      "Support AWS and GCP workloads, integrations, monitoring, and hybrid connectivity."
+      "Primary infrastructure administrator for 12+ AWS accounts and 3 GCP data pipeline and data warehouse environments.",
+      "Implemented and operate production hybrid connectivity between AWS and on-premises (Site-to-Site and Client VPN, Transit Gateway, BGP).",
+      "Built an AI-assisted operations workflow on Amazon Bedrock and multi-account FinOps reporting (Athena, Lambda, CloudFront).",
+      "Build and maintain AWS infrastructure as code with Terraform and CI/CD pipelines.",
+      "Recognized as LG CNS Brasil Merit Employee 2026."
     ]
   },
   {
-    "role": "Cloud Administrator \u2014 Epson do Brasil account",
-    "company": "Positivo S+ (2022\u20132025) \u00b7 Algar Tech (2019\u20132022)",
-    "period": "2019 \u2013 2025",
+    "role": "Cloud Administrator",
+    "company": "Positivo S+ · Epson do Brasil account",
+    "period": "Jul 2022 – Sep 2025",
     "points": [
-      "Led migration of critical Epson do Brasil applications from on-premises infrastructure to AWS.",
-      "Maintained AWS workloads, reusable Terraform modules, hybrid networking, Linux, Oracle, and MySQL."
+      "Continued cloud administration of the Epson do Brasil account after it moved from Algar Tech.",
+      "Maintained AWS workloads (VPC, EC2, RDS, S3, Lambda, CloudWatch, Elastic Beanstalk) with Terraform and CloudFormation.",
+      "Operated hybrid infrastructure: RHEL Linux, Oracle 19c, MySQL and Windows Server, with CloudWatch monitoring and logging."
     ]
   },
   {
-    "role": "Infrastructure Technician & Team Lead",
-    "company": "Randstad",
-    "period": "2016 \u2013 2019",
+    "role": "Cloud Administrator",
+    "company": "Algar Tech · Epson do Brasil account",
+    "period": "Sep 2019 – Jun 2022",
     "points": [
-      "Led a team of 10 field technicians and coordinated IT service delivery."
+      "Led the migration of critical Epson do Brasil applications from on-premises infrastructure to AWS.",
+      "Provisioned and maintained AWS infrastructure with Terraform and CloudFormation."
     ]
   },
   {
-    "role": "Infrastructure Technician",
+    "role": "IT Infrastructure Technician",
+    "company": "Randstad Technologies US",
+    "period": "Nov 2015 – Sep 2019",
+    "points": [
+      "Led a team of 10 field technicians; administered Active Directory and Google Workspace access for 500+ employees.",
+      "Administered DNS, DHCP and VPN services for distributed teams."
+    ]
+  },
+  {
+    "role": "IT Infrastructure Technician",
     "company": "Capgemini",
-    "period": "2013 \u2013 2016",
+    "period": "Oct 2013 – Nov 2015",
     "points": [
-      "Administered Active Directory, DNS, DHCP, and WSUS in enterprise environments."
+      "Administered Active Directory, DNS, DHCP and WSUS for an enterprise environment of 1,000+ users."
     ]
   }
 ];

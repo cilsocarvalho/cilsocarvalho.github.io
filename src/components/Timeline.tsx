@@ -7,14 +7,14 @@ const Timeline = () => (
     id="experience"
     eyebrow="Experience"
     title="Career positioning & impact"
-    subtitle="Hands-on cloud, infrastructure, and data operations across global environments."
+    subtitle="From enterprise infrastructure to AWS cloud engineering — 10+ years in IT."
   >
     <div className="relative mx-auto max-w-3xl">
       {/* vertical line */}
       <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-blue to-purple sm:left-5" />
       <div className="space-y-8">
         {timeline.map((item) => (
-          <div key={item.role} className="relative pl-12 sm:pl-16">
+          <div key={`${item.role}-${item.company}`} className="relative pl-12 sm:pl-16">
             <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow sm:h-10 sm:w-10">
               <Briefcase className="h-4 w-4" />
             </div>
