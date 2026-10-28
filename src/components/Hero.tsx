@@ -16,8 +16,8 @@ const Hero = () => {
           <h1 className="text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.035em] sm:text-7xl">Cilso Carvalho</h1>
           <p className="mt-4 text-xl font-medium sm:text-2xl">Senior Cloud &amp; DevOps Engineer — AWS, Terraform, Kubernetes</p>
           <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
-            I design and run production AWS infrastructure: 12+ accounts, hybrid networking with BGP, containers on ECS
-            and AI-assisted operations on Amazon Bedrock. 10+ years in IT, from data-center operations to cloud architecture.
+            I design and run production AWS infrastructure: 12+ accounts, hybrid networking with BGP and Direct Connect,
+            Kubernetes on EKS, containers on ECS and AI-assisted operations on Amazon Bedrock. 10+ years in IT, from data-center operations to cloud architecture.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild size="lg"><a href="#projects">See the case studies</a></Button>

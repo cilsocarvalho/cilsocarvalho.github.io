@@ -16,6 +16,34 @@ export interface CaseStudyData {
 // Order matters: this is the order on the page.
 export const caseStudies: CaseStudyData[] = [
   {
+    slug: "eks-platform",
+    title: "Occurrence management platform on Amazon EKS",
+    status: "Implemented",
+    summary:
+      "Carrier-facing microservices on Amazon EKS across three Availability Zones, deployed with Argo CD and connected to on-premises systems over AWS Direct Connect.",
+    problem:
+      "Carriers report shipment occurrences through different protocols — REST, SOAP and other interfaces — and every occurrence has to reach the on-premises system of record reliably, with a cloud copy available for analytics.",
+    built:
+      "Designed and documented the AWS architecture: API Gateway exposes the carrier APIs and reaches an internal load balancer through a VPC Link; an EKS cluster across three Availability Zones runs separate controllers for REST, SOAP and generic interfaces plus a queue consumer; images live in Amazon ECR and Argo CD syncs Kubernetes manifests from Bitbucket. Occurrences are stored in DynamoDB and buffered in SQS with a dead-letter queue, the on-premises Oracle cluster is reached through Direct Connect (partner hosted connection, private VIF), and a scheduled export lands data in S3 for Glue and Athena. CloudWatch, Managed Grafana, CloudTrail, IAM and Certificate Manager cover operations and security.",
+    flow: [
+      "Carriers call the APIs over HTTPS through API Gateway.",
+      "A VPC Link forwards requests to an internal load balancer in private subnets.",
+      "Kubernetes Ingress and Services route each call to the REST, SOAP or interface controller pods.",
+      "Controllers publish occurrences to SQS; the consumer processes them and failed messages go to a dead-letter queue.",
+      "Direct Connect, over a private VIF, links the VPC to the on-premises Oracle system of record.",
+    ],
+    decisions: [
+      "Worker nodes stay private in three Availability Zones; only API Gateway faces the internet, through a VPC Link.",
+      "One deployment per protocol (REST, SOAP, interfaces), so each scales and ships on its own.",
+      "GitOps: Argo CD applies manifests from Bitbucket and pulls images from ECR.",
+      "SQS with a dead-letter queue decouples carriers from back-end processing.",
+      "Direct Connect instead of a VPN for steady, private access to the on-premises database.",
+    ],
+    result:
+      "Carrier occurrences enter through one managed API, run on independently scalable services, reach the on-premises system privately and land in the data lake for analytics.",
+    tags: ["Amazon EKS", "Argo CD", "API Gateway", "SQS", "Direct Connect", "DynamoDB"],
+  },
+  {
     slug: "family-club",
     title: "LG Family Club platform on Amazon ECS",
     status: "In production",
@@ -244,6 +272,7 @@ export const caseStudies: CaseStudyData[] = [
 ];
 
 export const heroDiagrams = [
+  { slug: "eks-platform", label: "Microservices on EKS" },
   { slug: "family-club", label: "Containers on ECS" },
   { slug: "hybrid-connectivity", label: "Hybrid networking" },
   { slug: "aiops", label: "AIOps on Bedrock" },

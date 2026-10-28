@@ -20,7 +20,7 @@ BRAND = {
     "googlecloudcomposer": "#4285F4", "googlecloudstorage": "#4285F4", "grafana": "#F46800",
     "jira": "#0052CC", "laravel": "#FF2D20", "openjdk": "#437291", "php": "#777BB4",
     "vmware": "#607078", "strongswan": "#E00033", "ubuntu": "#E95420", "vuedotjs": "#42B883",
-    "terraform": "#7B42BC",
+    "terraform": "#7B42BC", "argo": "#EF7B4D", "bitbucket": "#0052CC", "kubernetes": "#326CE5",
 }
 
 GROUPS = {
@@ -36,6 +36,7 @@ GROUPS = {
     "asg": ("#ED7100", "none", True, "group/AutoScalinggroup.svg", "#ED7100"),
     "generic": ("#7D8998", "none", True, None, "#5A6B86"),
     "gcp": ("#4285F4", "none", False, "brand:googlecloud", "#1A73E8"),
+    "eks": ("#ED7100", "#fff", True, "aws/AmazonElasticKubernetesService.svg", "#C45500"),
 }
 
 STATUS = {
@@ -126,6 +127,11 @@ class Diagram:
                 ty += 14
         self.front.append("".join(out))
         self.nodes[nid] = dict(cx=cx, cy=cy, s=s, bottom=ty - 8)
+
+    def chip(self, x, y, icon, label, s=30):
+        """Small icon with its label on the right — for supporting services."""
+        self.front.append(self.icon(icon, x, y, s) +
+                          f'<text x="{x + s + 8}" y="{y + s/2 + 4.5}" font-family="{FONT}" font-size="12" font-weight="700" fill="{INK}">{esc(label)}</text>')
 
     def a(self, nid, side, off=0):
         n = self.nodes[nid]

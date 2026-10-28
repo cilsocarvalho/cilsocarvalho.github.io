@@ -317,7 +317,75 @@ def gcp_data():
     return d
 
 
-ALL = [family_club, hybrid, aiops, finops, occurrences, carrier, sales_portal, analytics, gcp_data]
+def eks_platform():
+    d = Diagram("eks-platform", "Occurrence management platform — microservices on Amazon EKS",
+                "Carrier APIs via API Gateway + VPC Link · EKS across 3 AZs · GitOps with Argo CD · SQS + DLQ · Direct Connect to on-premises",
+                "IMPLEMENTED")
+    d.node("car", 60, 250, A + "Internet.svg", "Carriers", "Partner systems", s=44)
+    d.node("bb", 60, 355, "brand:bitbucket", "Bitbucket", "K8s manifests", s=40)
+    d.group(120, 108, 970, 664, "cloud", "AWS Cloud")
+    d.chip(262, 116, A + "AmazonCloudWatch.svg", "CloudWatch", s=26)
+    d.chip(392, 116, A + "AmazonManagedGrafana.svg", "Managed Grafana", s=26)
+    d.chip(560, 116, A + "AWSCloudTrail.svg", "CloudTrail", s=26)
+    d.chip(682, 116, A + "AWSIdentityandAccessManagement.svg", "IAM", s=26)
+    d.chip(760, 116, A + "AWSCertificateManager.svg", "Certificate Manager", s=26)
+    d.group(140, 160, 930, 600, "region", "AWS Region")
+    d.node("apigw", 250, 250, A + "AmazonAPIGateway.svg", "API Gateway", "Carrier-facing APIs", s=46)
+    d.node("ddb", 250, 555, A + "AmazonDynamoDB.svg", "Amazon DynamoDB", "Occurrence records", s=46)
+    d.group(365, 195, 525, 455, "vpc", "VPC")
+    d.group(470, 228, 405, 64, "public", "Public subnets")
+    d.chip(640, 246, A + "AmazonVPCNATGateway.svg", "NAT gateway per AZ", s=28)
+    d.group(380, 305, 495, 332, "private", "Private subnets · 3 Availability Zones")
+    d.node("elb", 425, 440, A + "ElasticLoadBalancing.svg", "Load balancer", "internal", s=40)
+    d.stack(480, 375, 380, 245, n=3, color="#ED7100")
+    d.group(480, 375, 380, 245, "eks", "Amazon EKS cluster")
+    d.node("ing", 545, 440, "brand:kubernetes", "Ingress", s=38)
+    d.node("svc", 665, 440, "brand:kubernetes", "Services", s=38)
+    d.node("argo", 795, 440, "brand:argo", "Argo CD", "GitOps sync", s=38)
+    d.node("p1", 530, 555, A + "AmazonElasticContainerServiceContainer1.svg", "REST", "controller", s=34)
+    d.node("p2", 615, 555, A + "AmazonElasticContainerServiceContainer1.svg", "SOAP", "controller", s=34)
+    d.node("p3", 700, 555, A + "AmazonElasticContainerServiceContainer1.svg", "Interface", "controller", s=34)
+    d.node("p4", 790, 555, A + "AmazonElasticContainerServiceContainer1.svg", "Queue", "consumer", s=34)
+    d.node("ecr", 985, 300, A + "AmazonElasticContainerRegistry.svg", "Amazon ECR", "Image repositories", s=44)
+    d.node("sqs", 985, 455, A + "AmazonSimpleQueueService.svg", "Amazon SQS", "Occurrence queue", s=44)
+    d.node("dlq", 985, 575, A + "AmazonSimpleQueueServiceQueue.svg", "Dead-letter queue", s=36)
+    d.node("vgw", 890, 650, A + "AmazonVPCVPNGateway.svg", "", s=32)
+    d.note(912, 636, "Virtual private gateway", size=12, color="#232F3E", weight="700")
+    d.group(1105, 108, 150, 450, "dc", "On-premises")
+    d.node("ora", 1180, 210, A + "Database.svg", "Oracle cluster", "System of record", s=42)
+    d.node("rtr", 1180, 400, A + "AmazonVPCCustomerGateway.svg", "Customer router", "Corporate backbone", s=42)
+    d.node("dx", 1180, 650, A + "AWSDirectConnect.svg", "Direct Connect", "Partner hosted\nconnection", s=42)
+    d.group(365, 668, 695, 80, "generic", "Analytics export")
+    d.chip(380, 700, A + "AmazonEventBridge.svg", "Schedule", s=28)
+    d.chip(505, 700, A + "AWSLambda.svg", "Export job", s=28)
+    d.chip(640, 700, A + "AmazonSimpleStorageService.svg", "Data lake", s=28)
+    d.chip(770, 700, A + "AWSGlue.svg", "Crawler", s=28)
+    d.chip(890, 700, A + "AmazonAthena.svg", "Athena SQL", s=28)
+
+    d.edge([(84, 250), (223, 250)], "HTTPS", at=(150, 250), step=1, step_at=(105, 232))
+    d.edge([(277, 250), (425, 250), (425, 416)], "VPC Link", at=(330, 250), step=2, step_at=(425, 300))
+    d.edge([(84, 355), (795, 355), (795, 417)], "pull manifests", at=(300, 355), dashed=True)
+    d.edge([(449, 440), (522, 440)])
+    d.edge([(568, 440), (642, 440)])
+    d.edge([(772, 440), (690, 440)], dashed=True)
+    d.label(731, 424, "apply")
+    d.edge([d.a("svc", "b"), (665, 512), (530, 512), (530, 534)], step=3, step_at=(690, 495))
+    d.edge([(665, 512), (700, 512), (700, 534)])
+    d.edge([(615, 512), (615, 534)])
+    d.edge([(963, 300), (905, 300), (905, 410), (876, 410)], "pull images", at=(905, 388), dashed=True)
+    d.edge([(963, 470), (850, 470), (850, 555), (811, 555)], "publish / consume", at=(905, 470), both=True, step=4, step_at=(850, 512))
+    d.edge([d.a("sqs", "b"), (985, 553)], dashed=True)
+    d.edge([(510, 560), (277, 560)], "read / write", at=(420, 560))
+    d.edge([(1158, 650), (910, 650)], "private VIF", at=(1085, 668), both=True, step=5, step_at=(1110, 632))
+    d.edge([d.a("rtr", "b"), (1180, 625)], both=True)
+    d.edge([d.a("ora", "b"), (1180, 376)], both=True)
+    d.edge([d.a("ddb", "b"), (250, 659), (519, 659), (519, 696)], "extract", at=(380, 659))
+    for x1, x2 in [(474, 502), (610, 637), (740, 767), (856, 887)]:
+        d.edge([(x1, 714), (x2, 714)])
+    return d
+
+
+ALL = [eks_platform, family_club, hybrid, aiops, finops, occurrences, carrier, sales_portal, analytics, gcp_data]
 
 if __name__ == "__main__":
     only = set(sys.argv[1:])
