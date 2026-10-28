@@ -3,6 +3,7 @@ import { Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import NetworkBackdrop from "@/components/NetworkBackdrop";
+import DiagramImage from "@/components/DiagramImage";
 import { caseStudies, heroDiagrams } from "@/data/case-studies";
 
 const facts = [
@@ -64,14 +65,7 @@ const Hero = () => {
             ))}
           </div>
           <div id="hero-diagram" role="tabpanel" className="overflow-x-auto bg-background p-3 sm:p-5">
-            <img
-              key={active}
-              src={`/architecture/${active}.svg?v=2026-10`}
-              alt={`${study.title} — architecture diagram`}
-              width="1280"
-              height="820"
-              className="w-full rounded sm:min-w-[760px]"
-            />
+            <DiagramImage key={active} slug={active} loading="eager" alt={`${study.title} — architecture diagram`} className="rounded sm:min-w-[760px]" />
           </div>
           <figcaption className="flex flex-wrap items-baseline justify-between gap-3 border-t border-border px-5 py-4">
             <span className="text-[15px] text-muted-foreground">{study.summary}</span>

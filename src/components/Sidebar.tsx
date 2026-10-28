@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { Download, Linkedin, Github, Mail } from "lucide-react";
 import { navItems, LINKEDIN_URL, GITHUB_URL, EMAIL } from "@/data/portfolio";
 
+const AVATAR = "https://avatars.githubusercontent.com/u/92828760?s=240&v=4";
+
 const Sidebar = () => {
   const [active, setActive] = useState<string>("");
+  const [photoOk, setPhotoOk] = useState(true);
 
   useEffect(() => {
     const ids = navItems.map((n) => n.href.slice(1));
@@ -21,6 +24,11 @@ const Sidebar = () => {
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-[var(--sidebar-w)] flex-col border-r border-border bg-background px-7 py-8 lg:flex">
       <a href="#home" className="block">
+        {photoOk ? (
+          <img src={AVATAR} alt="Cilso Carvalho" width="96" height="96" onError={() => setPhotoOk(false)} className="mb-5 h-24 w-24 rounded-md object-cover" />
+        ) : (
+          <span aria-hidden="true" className="mb-5 flex h-24 w-24 items-center justify-center rounded-md border border-border text-2xl font-semibold text-primary">CC</span>
+        )}
         <span className="block text-xl font-semibold tracking-tight">Cilso Carvalho</span>
         <span className="mt-3 block leading-snug text-muted-foreground">
           Cloud &amp; DevOps engineering<br />AWS architecture<br />Platform operations

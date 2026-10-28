@@ -9,7 +9,7 @@ const CaseStudy = ({ slug }: { slug: string }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const study = caseStudies.find((item) => item.slug === slug);
   if (!study) return null;
-  const src = `/architecture/${study.slug}.svg?v=2026-10`;
+  const src = `/architecture/${study.slug}.svg?v=2026-10b`;
   return (
     <Dialog open={searchParams.get("project") === slug} onOpenChange={(open) => {
       setSearchParams((current) => {
@@ -31,6 +31,7 @@ const CaseStudy = ({ slug }: { slug: string }) => {
 
         <figure className="sheet mt-4 min-w-0 rounded-md p-2 sm:p-3">
           <div className="overflow-x-auto"><img src={src} alt={`${study.title} — architecture diagram`} width="1280" height="820" className="min-w-[760px] w-full rounded-sm border border-border bg-white" /></div>
+          <a href={src} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block px-1 text-sm font-medium text-primary hover:underline">Open the diagram full size</a>
         </figure>
 
         <div className="mt-6 grid gap-x-12 gap-y-8 lg:grid-cols-2">

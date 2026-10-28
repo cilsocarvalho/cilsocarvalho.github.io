@@ -91,7 +91,8 @@ export const timeline = [
     "points": [
       "Primary infrastructure administrator for 12+ AWS accounts and 3 GCP data pipeline and data warehouse environments.",
       "Implemented and operate production hybrid connectivity between AWS and on-premises (Site-to-Site and Client VPN, Transit Gateway, BGP).",
-      "Built an AI-assisted operations workflow on Amazon Bedrock and multi-account FinOps reporting (Athena, Lambda, CloudFront).",
+      "Designed and implemented a containerized platform on Amazon ECS in a Control Tower multi-account landing zone; designed a microservices platform on Amazon EKS with Argo CD, now in development.",
+  "Built an AI-assisted operations workflow on Amazon Bedrock and multi-account FinOps reporting (Athena, Lambda, CloudFront).",
       "Build and maintain AWS infrastructure as code with Terraform and CI/CD pipelines.",
       "Recognized as LG CNS Brasil Merit Employee 2026."
     ]

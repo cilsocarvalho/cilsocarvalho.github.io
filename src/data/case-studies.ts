@@ -1,4 +1,4 @@
-export type CaseStatus = "In production" | "Implemented" | "Architecture" | "Operations";
+export type CaseStatus = "In production" | "In development" | "Implemented" | "Architecture" | "Operations";
 
 export interface CaseStudyData {
   slug: string;
@@ -16,34 +16,6 @@ export interface CaseStudyData {
 // Order matters: this is the order on the page.
 export const caseStudies: CaseStudyData[] = [
   {
-    slug: "eks-platform",
-    title: "Occurrence management platform on Amazon EKS",
-    status: "Implemented",
-    summary:
-      "Carrier-facing microservices on Amazon EKS across three Availability Zones, deployed with Argo CD and connected to on-premises systems over AWS Direct Connect.",
-    problem:
-      "Carriers report shipment occurrences through different protocols — REST, SOAP and other interfaces — and every occurrence has to reach the on-premises system of record reliably, with a cloud copy available for analytics.",
-    built:
-      "Designed and documented the AWS architecture: API Gateway exposes the carrier APIs and reaches an internal load balancer through a VPC Link; an EKS cluster across three Availability Zones runs separate controllers for REST, SOAP and generic interfaces plus a queue consumer; images live in Amazon ECR and Argo CD syncs Kubernetes manifests from Bitbucket. Occurrences are stored in DynamoDB and buffered in SQS with a dead-letter queue, the on-premises Oracle cluster is reached through Direct Connect (partner hosted connection, private VIF), and a scheduled export lands data in S3 for Glue and Athena. CloudWatch, Managed Grafana, CloudTrail, IAM and Certificate Manager cover operations and security.",
-    flow: [
-      "Carriers call the APIs over HTTPS through API Gateway.",
-      "A VPC Link forwards requests to an internal load balancer in private subnets.",
-      "Kubernetes Ingress and Services route each call to the REST, SOAP or interface controller pods.",
-      "Controllers publish occurrences to SQS; the consumer processes them and failed messages go to a dead-letter queue.",
-      "Direct Connect, over a private VIF, links the VPC to the on-premises Oracle system of record.",
-    ],
-    decisions: [
-      "Worker nodes stay private in three Availability Zones; only API Gateway faces the internet, through a VPC Link.",
-      "One deployment per protocol (REST, SOAP, interfaces), so each scales and ships on its own.",
-      "GitOps: Argo CD applies manifests from Bitbucket and pulls images from ECR.",
-      "SQS with a dead-letter queue decouples carriers from back-end processing.",
-      "Direct Connect instead of a VPN for steady, private access to the on-premises database.",
-    ],
-    result:
-      "Carrier occurrences enter through one managed API, run on independently scalable services, reach the on-premises system privately and land in the data lake for analytics.",
-    tags: ["Amazon EKS", "Argo CD", "API Gateway", "SQS", "Direct Connect", "DynamoDB"],
-  },
-  {
     slug: "family-club",
     title: "LG Family Club platform on Amazon ECS",
     status: "In production",
@@ -52,7 +24,7 @@ export const caseStudies: CaseStudyData[] = [
     problem:
       "The platform needed a production home that isolates workloads by account, scales user-facing and background work independently, and keeps security guardrails in one place.",
     built:
-      "Designed the AWS architecture: a Control Tower landing zone with a security account and a workload account in us-east-1, ECS services for the API and for background workers in private subnets, Aurora for relational data, ElastiCache for caching and sessions, SQS for asynchronous jobs and EventBridge for events and schedules. GuardDuty findings are centralized in the security account.",
+      "Designed and implemented the AWS architecture: a Control Tower landing zone with a security account and a workload account in us-east-1, ECS services for the API and for background workers in private subnets, Aurora for relational data, ElastiCache for caching and sessions, SQS for asynchronous jobs and EventBridge for events and schedules. GuardDuty findings are centralized in the security account.",
     flow: [
       "Users reach the Application Load Balancer over HTTPS — the only public entry point.",
       "The load balancer routes requests to ECS API services in private subnets.",
@@ -93,6 +65,34 @@ export const caseStudies: CaseStudyData[] = [
     result:
       "Private, dynamically routed connectivity from the data center to every environment, managed from one network account.",
     tags: ["Site-to-Site VPN", "Transit Gateway", "BGP", "AWS RAM", "StrongSwan", "Terraform"],
+  },
+  {
+    slug: "eks-platform",
+    title: "Occurrence management platform on Amazon EKS",
+    status: "In development",
+    summary:
+      "Carrier-facing microservices on Amazon EKS across three Availability Zones, deployed with Argo CD and connected to on-premises systems over AWS Direct Connect.",
+    problem:
+      "Carriers report shipment occurrences through different protocols — REST, SOAP and other interfaces — and every occurrence has to reach the on-premises system of record reliably, with a cloud copy available for analytics.",
+    built:
+      "Designed and documented the AWS architecture, now running in the development environment: API Gateway exposes the carrier APIs and reaches an internal load balancer through a VPC Link; an EKS cluster across three Availability Zones runs separate controllers for REST, SOAP and generic interfaces plus a queue consumer; images live in Amazon ECR and Argo CD syncs Kubernetes manifests from Bitbucket. Occurrences are stored in DynamoDB and buffered in SQS with a dead-letter queue, the on-premises Oracle cluster is reached through Direct Connect (partner hosted connection, private VIF), and a scheduled export lands data in S3 for Glue and Athena. CloudWatch, Managed Grafana, CloudTrail, IAM and Certificate Manager cover operations and security.",
+    flow: [
+      "Carriers call the APIs over HTTPS through API Gateway.",
+      "A VPC Link forwards requests to an internal load balancer in private subnets.",
+      "Kubernetes Ingress and Services route each call to the REST, SOAP or interface controller pods.",
+      "Controllers publish occurrences to SQS; the consumer processes them and failed messages go to a dead-letter queue.",
+      "Direct Connect, over a private VIF, links the VPC to the on-premises Oracle system of record.",
+    ],
+    decisions: [
+      "Worker nodes stay private in three Availability Zones; only API Gateway faces the internet, through a VPC Link.",
+      "One deployment per protocol (REST, SOAP, interfaces), so each scales and ships on its own.",
+      "GitOps: Argo CD applies manifests from Bitbucket and pulls images from ECR.",
+      "SQS with a dead-letter queue decouples carriers from back-end processing.",
+      "Direct Connect instead of a VPN for steady, private access to the on-premises database.",
+    ],
+    result:
+      "A design where carrier occurrences enter through one managed API, run on independently scalable services, reach the on-premises system privately and land in the data lake for analytics — validated in the development environment.",
+    tags: ["Amazon EKS", "Argo CD", "API Gateway", "SQS", "Direct Connect", "DynamoDB"],
   },
   {
     slug: "aiops",
@@ -174,13 +174,13 @@ export const caseStudies: CaseStudyData[] = [
   {
     slug: "carrier-integration",
     title: "Carrier Integration Portal",
-    status: "Architecture",
+    status: "In production",
     summary:
       "Event-driven shipment flow between LG systems and carriers on SQS FIFO queues, Lambda, API Gateway and DynamoDB.",
     problem:
       "Shipments must reach several carriers in order and exactly once, and status updates must come back reliably to LG systems and operations.",
     built:
-      "Designed an event-driven architecture: orders reach AWS over Transit Gateway and move through FIFO queues — carrier-payload, carrier-dispatch and carrier-status — each with its own Lambda consumer. Carrier webhooks enter through API Gateway, shipment state lives in DynamoDB and Grafana gives operations a live view. The design went through several iterations following AWS Architecture Icons and Well-Architected guidance.",
+      "Designed the event-driven architecture now running in production: orders reach AWS over Transit Gateway and move through FIFO queues — carrier-payload, carrier-dispatch and carrier-status — each with its own Lambda consumer. Carrier webhooks enter through API Gateway, shipment state lives in DynamoDB and Grafana gives operations a live view. The design went through several iterations following AWS Architecture Icons and Well-Architected guidance.",
     flow: [
       "LG logistics systems send shipment orders to AWS over Transit Gateway.",
       "A Lambda consumer builds the carrier-specific payload from the payload queue.",
@@ -193,7 +193,7 @@ export const caseStudies: CaseStudyData[] = [
       "A private hybrid path over Transit Gateway for LG systems.",
     ],
     result:
-      "A slow or failing carrier never blocks the others, and every status change can be traced.",
+      "In production, a slow or failing carrier never blocks the others, and every status change can be traced.",
     tags: ["SQS FIFO", "Lambda", "API Gateway", "DynamoDB", "Transit Gateway", "Grafana"],
   },
   {
@@ -272,8 +272,8 @@ export const caseStudies: CaseStudyData[] = [
 ];
 
 export const heroDiagrams = [
-  { slug: "eks-platform", label: "Microservices on EKS" },
   { slug: "family-club", label: "Containers on ECS" },
+  { slug: "eks-platform", label: "Microservices on EKS" },
   { slug: "hybrid-connectivity", label: "Hybrid networking" },
   { slug: "aiops", label: "AIOps on Bedrock" },
 ];
