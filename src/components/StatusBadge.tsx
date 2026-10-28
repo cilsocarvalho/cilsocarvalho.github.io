@@ -1,10 +1,10 @@
 import type { CaseStatus } from "@/data/case-studies";
 
 const tone: Record<CaseStatus, string> = {
-  "In production": "bg-[#E8F5EE] text-[#1D6B02]",
-  Implemented: "bg-[#E8F5EE] text-[#1D6B02]",
-  Architecture: "bg-[#EEF2FB] text-[#2459C9]",
-  Operations: "bg-[#FFF4E5] text-[#9A4E00]",
+  "In production": "bg-[#7BD88F]/10 text-[#7BD88F] ring-1 ring-inset ring-[#7BD88F]/25",
+  Implemented: "bg-[#7BD88F]/10 text-[#7BD88F] ring-1 ring-inset ring-[#7BD88F]/25",
+  Architecture: "bg-[#8AB4FF]/10 text-[#8AB4FF] ring-1 ring-inset ring-[#8AB4FF]/25",
+  Operations: "bg-[#F5B971]/10 text-[#F5B971] ring-1 ring-inset ring-[#F5B971]/25",
 };
 
 const StatusBadge = ({ status }: { status: CaseStatus }) => (

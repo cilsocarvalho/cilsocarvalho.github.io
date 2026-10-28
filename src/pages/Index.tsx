@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
@@ -9,6 +10,8 @@ import { EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/data/portfolio";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
+    <Sidebar />
+    <div className="lg:pl-[var(--sidebar-w)]">
     <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-background focus:p-3">Skip to content</a>
     <Navbar />
     <main id="main">
@@ -30,6 +33,7 @@ const Index = () => (
         </div>
       </div>
     </footer>
+    </div>
   </div>
 );
 
