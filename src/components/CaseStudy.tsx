@@ -30,7 +30,7 @@ const CaseStudy = ({ slug }: { slug: string }) => {
         </DialogHeader>
 
         <figure className="sheet mt-4 min-w-0 rounded-md p-2 sm:p-3">
-          <div className="overflow-x-auto"><img src={src} alt={`${study.title} — architecture diagram`} width="1280" height="820" className="min-w-[760px] w-full rounded-sm border border-border bg-white" /></div>
+          <div className="overflow-x-auto"><img src={src} alt={`Architecture diagram: ${study.title}`} width="1280" height="820" className="min-w-[760px] w-full rounded-sm border border-border bg-white" /></div>
           <a href={src} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block px-1 text-sm font-medium text-primary hover:underline">Open the diagram full size</a>
         </figure>
 

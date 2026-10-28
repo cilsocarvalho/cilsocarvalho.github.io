@@ -12,7 +12,7 @@ export const navItems = [
 
 export const heroBadges = ["AWS", "Kubernetes", "Terraform", "CI/CD", "Observability", "FinOps"];
 
-// Brand technology stack — iconKey maps to react-icons in TechStack.tsx
+// Brand technology stack: iconKey maps to react-icons in TechStack.tsx
 export const techStack = [
   { name: "AWS", iconKey: "aws" },
   { name: "Google Cloud", iconKey: "gcp" },
@@ -30,7 +30,7 @@ export const techStack = [
   { name: "Prometheus", iconKey: "prometheus" },
 ];
 
-// Skill matrix — Cloud / DevOps / Data
+// Skill matrix: Cloud / DevOps / Data
 export const skillMatrix = [
   {
     title: "Cloud",

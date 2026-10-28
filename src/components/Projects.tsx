@@ -20,7 +20,7 @@ const Projects = () => (
           >
             <img
               src={`/architecture/${study.slug}.svg?v=2026-10b`}
-              alt={`${study.title} — architecture diagram`}
+              alt={`Architecture diagram: ${study.title}`}
               width="1280"
               height="820"
               loading="lazy"

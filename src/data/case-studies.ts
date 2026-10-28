@@ -26,7 +26,7 @@ export const caseStudies: CaseStudyData[] = [
     built:
       "Designed and implemented the AWS architecture: a Control Tower landing zone with a security account and a workload account in us-east-1, ECS services for the API and for background workers in private subnets, Aurora for relational data, ElastiCache for caching and sessions, SQS for asynchronous jobs and EventBridge for events and schedules. GuardDuty findings are centralized in the security account.",
     flow: [
-      "Users reach the Application Load Balancer over HTTPS — the only public entry point.",
+      "Users reach the Application Load Balancer over HTTPS, the only public entry point.",
       "The load balancer routes requests to ECS API services in private subnets.",
       "API services enqueue work on SQS; worker services consume jobs and EventBridge events.",
       "Services read and write Aurora and use ElastiCache for caching and sessions.",
@@ -73,7 +73,7 @@ export const caseStudies: CaseStudyData[] = [
     summary:
       "Carrier-facing microservices on Amazon EKS across three Availability Zones, deployed with Argo CD and connected to on-premises systems over AWS Direct Connect.",
     problem:
-      "Carriers report shipment occurrences through different protocols — REST, SOAP and other interfaces — and every occurrence has to reach the on-premises system of record reliably, with a cloud copy available for analytics.",
+      "Carriers report shipment occurrences through different protocols (REST, SOAP and others), and every occurrence has to reach the on-premises system of record reliably, with a cloud copy available for analytics.",
     built:
       "Designed and documented the AWS architecture, now running in the development environment: API Gateway exposes the carrier APIs and reaches an internal load balancer through a VPC Link; an EKS cluster across three Availability Zones runs separate controllers for REST, SOAP and generic interfaces plus a queue consumer; images live in Amazon ECR and Argo CD syncs Kubernetes manifests from Bitbucket. Occurrences are stored in DynamoDB and buffered in SQS with a dead-letter queue, the on-premises Oracle cluster is reached through Direct Connect (partner hosted connection, private VIF), and a scheduled export lands data in S3 for Glue and Athena. CloudWatch, Managed Grafana, CloudTrail, IAM and Certificate Manager cover operations and security.",
     flow: [
@@ -91,7 +91,7 @@ export const caseStudies: CaseStudyData[] = [
       "Direct Connect instead of a VPN for steady, private access to the on-premises database.",
     ],
     result:
-      "A design where carrier occurrences enter through one managed API, run on independently scalable services, reach the on-premises system privately and land in the data lake for analytics — validated in the development environment.",
+      "A design where carrier occurrences enter through one managed API, run on independently scalable services, reach the on-premises system privately and land in the data lake for analytics. Validated in the development environment.",
     tags: ["Amazon EKS", "Argo CD", "API Gateway", "SQS", "Direct Connect", "DynamoDB"],
   },
   {
@@ -180,7 +180,7 @@ export const caseStudies: CaseStudyData[] = [
     problem:
       "Shipments must reach several carriers in order and exactly once, and status updates must come back reliably to LG systems and operations.",
     built:
-      "Designed the event-driven architecture now running in production: orders reach AWS over Transit Gateway and move through FIFO queues — carrier-payload, carrier-dispatch and carrier-status — each with its own Lambda consumer. Carrier webhooks enter through API Gateway, shipment state lives in DynamoDB and Grafana gives operations a live view. The design went through several iterations following AWS Architecture Icons and Well-Architected guidance.",
+      "Designed the event-driven architecture now running in production: orders reach AWS over Transit Gateway and move through FIFO queues (carrier-payload, carrier-dispatch and carrier-status), each with its own Lambda consumer. Carrier webhooks enter through API Gateway, shipment state lives in DynamoDB and Grafana gives operations a live view. The design went through several iterations following AWS Architecture Icons and Well-Architected guidance.",
     flow: [
       "LG logistics systems send shipment orders to AWS over Transit Gateway.",
       "A Lambda consumer builds the carrier-specific payload from the payload queue.",

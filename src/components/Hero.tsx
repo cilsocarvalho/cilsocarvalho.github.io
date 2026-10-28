@@ -6,7 +6,7 @@ const facts = [
   { term: "Scope", value: "12+ AWS accounts, 3 GCP environments" },
   { term: "Experience", value: "10+ years in IT" },
   { term: "Certification", value: "AWS Solutions Architect – Associate" },
-  { term: "Based in", value: "São Paulo, Brazil — remote, UTC-3" },
+  { term: "Based in", value: "São Paulo, Brazil (remote, UTC-3)" },
   { term: "Languages", value: "Portuguese, English" },
 ];
 import { Download, Linkedin, Github } from "lucide-react";
@@ -30,7 +30,7 @@ const Hero = () => {
             ) : null}
             <h1 className="text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.035em] sm:text-7xl">Cilso Carvalho</h1>
           </div>
-          <p className="mt-4 text-xl font-medium sm:text-2xl">Senior Cloud &amp; DevOps Engineer — AWS, Terraform, Kubernetes</p>
+          <p className="mt-4 text-xl font-medium sm:text-2xl">Senior Cloud &amp; DevOps Engineer: AWS, Terraform, Kubernetes</p>
           <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
             I design and run production AWS infrastructure: 12+ accounts, hybrid networking with BGP and Direct Connect,
             Kubernetes on EKS, containers on ECS and AI-assisted operations on Amazon Bedrock. 10+ years in IT, from data-center operations to cloud architecture.
@@ -76,7 +76,7 @@ const Hero = () => {
             <img
               key={active}
               src={`/architecture/${active}.svg?v=2026-10b`}
-              alt={`${study.title} — architecture diagram`}
+              alt={`Architecture diagram: ${study.title}`}
               width="1280"
               height="820"
               className="w-full rounded border border-border bg-white sm:min-w-[760px]"

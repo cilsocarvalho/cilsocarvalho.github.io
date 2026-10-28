@@ -48,7 +48,7 @@ const LinkedInSection = () => (
     id="linkedin"
     eyebrow="LinkedIn Profile Update"
     title="Copy-ready content for your LinkedIn"
-    subtitle="Optimized headline, About, experience, and skills — paste directly into your profile to boost recruiter visibility."
+    subtitle="Optimized headline, About, experience, and skills. Paste directly into your profile to boost recruiter visibility."
   >
     <div className="grid gap-6 lg:grid-cols-2">
       <CopyBlock label="Recommended Headline" text={linkedinHeadline} full />

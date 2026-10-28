@@ -5,7 +5,7 @@ const Timeline = () => (
   <Section
     id="experience"
     title="Experience"
-    subtitle="From enterprise infrastructure to AWS cloud engineering — 10+ years in IT."
+    subtitle="From enterprise infrastructure to AWS cloud engineering, over 10+ years in IT."
   >
     <ol className="max-w-4xl divide-y divide-border border-y border-border">
       {timeline.map((item) => (

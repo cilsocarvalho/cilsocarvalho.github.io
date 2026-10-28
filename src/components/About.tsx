@@ -14,7 +14,7 @@ const About = () => (
     <div className="grid gap-8 lg:grid-cols-5">
       <div className="lg:col-span-3">
         <p className="text-lg leading-relaxed text-foreground/85">
-          Cloud and DevOps engineer focused on AWS, with 10+ years in IT — from infrastructure
+          Cloud and DevOps engineer focused on AWS, with 10+ years in IT, from infrastructure
           operations to cloud architecture. I design, automate and run production infrastructure
           with Terraform, Kubernetes (EKS) and CI/CD.
         </p>
