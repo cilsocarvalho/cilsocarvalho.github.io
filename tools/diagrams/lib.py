@@ -43,6 +43,7 @@ STATUS = {
     "IN PRODUCTION": ("#E8F5EE", "#1D8102"),
     "IMPLEMENTED": ("#E8F5EE", "#1D8102"),
     "ARCHITECTURE": ("#EEF2FB", "#2459C9"),
+    "IN DEVELOPMENT": ("#FFF4E5", "#B95E00"),
     "OPERATIONS": ("#FFF4E5", "#B95E00"),
 }
 
@@ -210,7 +211,14 @@ class Diagram:
         return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" role="img" aria-label="{esc(self.title)}">'
                 f'<title>{esc(self.title)}</title>{defs}{head}{body}{foot}</svg>')
 
-    def save(self, out_dir):
+    def save(self, out_dir, focus=None):
+        """Write the full diagram and, with focus=(x, y, w, h), a cropped
+        close-up of the core of the architecture used for cards and phones."""
         p = Path(out_dir) / f"{self.slug}.svg"
-        p.write_text(self.svg())
+        full = self.svg()
+        p.write_text(full)
+        if focus:
+            x, y, w, h = focus
+            crop = full.replace(f'viewBox="0 0 {self.w} {self.h}"', f'viewBox="{x} {y} {w} {h}"', 1)
+            (Path(out_dir) / f"{self.slug}-focus.svg").write_text(crop)
         return p

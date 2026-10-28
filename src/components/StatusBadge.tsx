@@ -3,6 +3,7 @@ import type { CaseStatus } from "@/data/case-studies";
 const tone: Record<CaseStatus, string> = {
   "In production": "bg-[#E8F5EE] text-[#1D6B02]",
   Implemented: "bg-[#E8F5EE] text-[#1D6B02]",
+  "In development": "bg-[#FFF4E5] text-[#9A4E00]",
   Architecture: "bg-[#EEF2FB] text-[#2459C9]",
   Operations: "bg-[#FFF4E5] text-[#9A4E00]",
 };

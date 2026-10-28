@@ -195,7 +195,7 @@ def occurrences():
 def carrier():
     d = Diagram("carrier-integration", "Carrier Integration Portal — event-driven logistics on SQS FIFO",
                 "Ordered, idempotent shipment flow between LG systems and carriers · Transit Gateway to on-premises",
-                "ARCHITECTURE")
+                "IN PRODUCTION")
     d.group(30, 115, 205, 300, "dc", "On-premises")
     d.node("lg", 132, 300, A + "Officebuilding.svg", "LG logistics\nsystems", "Shipment orders")
     d.group(260, 115, 860, 655, "cloud", "AWS Cloud")
@@ -320,7 +320,7 @@ def gcp_data():
 def eks_platform():
     d = Diagram("eks-platform", "Occurrence management platform — microservices on Amazon EKS",
                 "Carrier APIs via API Gateway + VPC Link · EKS across 3 AZs · GitOps with Argo CD · SQS + DLQ · Direct Connect to on-premises",
-                "IMPLEMENTED")
+                "IN DEVELOPMENT")
     d.node("car", 60, 250, A + "Internet.svg", "Carriers", "Partner systems", s=44)
     d.node("bb", 60, 355, "brand:bitbucket", "Bitbucket", "K8s manifests", s=40)
     d.group(120, 108, 970, 664, "cloud", "AWS Cloud")
@@ -387,10 +387,23 @@ def eks_platform():
 
 ALL = [eks_platform, family_club, hybrid, aiops, finops, occurrences, carrier, sales_portal, analytics, gcp_data]
 
+# Close-up crops (x, y, w, h) at the 1280×820 aspect ratio, for cards and phones.
+FOCUS = {
+    "eks-platform": (350, 180, 760, 487),
+    "family-club": (430, 140, 820, 525),
+    "hybrid-connectivity": (25, 105, 830, 532),
+    "aiops": (300, 140, 940, 602),
+    "finops": (315, 140, 935, 599),
+    "occurrences-ai": (20, 180, 1000, 641),
+    "sales-portal": (300, 140, 950, 609),
+    "analytics-library": (20, 200, 1000, 641),
+    "gcp-data": (20, 215, 1160, 743),
+}
+
 if __name__ == "__main__":
     only = set(sys.argv[1:])
     for f in ALL:
         d = f()
         if only and d.slug not in only:
             continue
-        print(d.save(OUT))
+        print(d.save(OUT))  # pass FOCUS.get(d.slug) to also write close-up crops

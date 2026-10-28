@@ -19,7 +19,7 @@ const Projects = () => (
             aria-label={`Open the ${study.title} case study`}
           >
             <img
-              src={`/architecture/${study.slug}.svg?v=2026-10`}
+              src={`/architecture/${study.slug}.svg?v=2026-10b`}
               alt={`${study.title} — architecture diagram`}
               width="1280"
               height="820"
