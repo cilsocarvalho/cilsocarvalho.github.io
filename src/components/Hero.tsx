@@ -75,7 +75,7 @@ const Hero = () => {
           <div id="hero-diagram" role="tabpanel" className="overflow-x-auto p-3 sm:p-5">
             <img
               key={active}
-              src={`/architecture/${active}.svg?v=2026-10b`}
+              src={`/architecture/${active}.svg?v=2026-10c`}
               alt={`Architecture diagram: ${study.title}`}
               width="1280"
               height="820"

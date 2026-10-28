@@ -13,7 +13,7 @@ A = "aws/"
 
 
 def family_club():
-    d = Diagram("family-club", "LG Family Club — containerized platform on Amazon ECS",
+    d = Diagram("family-club", "LG Family Club: containerized platform on Amazon ECS",
                 "Multi-account landing zone (Control Tower) · us-east-1 · ECS, Aurora, ElastiCache, SQS, EventBridge",
                 "IN PRODUCTION")
     d.node("users", 85, 305, A + "Users.svg", "Platform users")
@@ -28,8 +28,8 @@ def family_club():
     d.group(450, 185, 760, 550, "region", "us-east-1")
     d.group(470, 220, 545, 495, "vpc", "VPC")
     d.group(490, 255, 505, 120, "public", "Public subnets")
-    d.group(490, 390, 505, 140, "private", "Private subnets — application")
-    d.group(490, 545, 505, 150, "private", "Private subnets — data")
+    d.group(490, 390, 505, 140, "private", "Private subnets: application")
+    d.group(490, 545, 505, 150, "private", "Private subnets: data")
     d.node("alb", 620, 305, A + "ElasticLoadBalancing.svg", "Application Load Balancer", s=44)
     d.node("api", 620, 448, A + "AmazonElasticContainerService.svg", "Amazon ECS", "API / web services", s=46)
     d.node("wrk", 860, 448, A + "AmazonElasticContainerService.svg", "Amazon ECS", "Worker services", s=46)
@@ -53,7 +53,7 @@ def family_club():
 
 
 def hybrid():
-    d = Diagram("hybrid-connectivity", "Hybrid connectivity — Site-to-Site VPN with BGP and Transit Gateway",
+    d = Diagram("hybrid-connectivity", "Hybrid connectivity: Site-to-Site VPN with BGP and Transit Gateway",
                 "On-premises ↔ AWS Organization · dynamic routing · isolated route tables per environment",
                 "IN PRODUCTION")
     d.group(30, 115, 285, 470, "dc", "Corporate data center")
@@ -96,7 +96,7 @@ def hybrid():
 
 
 def aiops():
-    d = Diagram("aiops", "AIOps SRE module — Amazon Bedrock recommendations for operations",
+    d = Diagram("aiops", "AIOps SRE module: Amazon Bedrock recommendations for operations",
                 "Serverless · CloudWatch alarms → Lambda agent → Amazon Nova Pro tool calling → Slack, Jira and team dashboard",
                 "IMPLEMENTED")
     d.group(30, 115, 1220, 655, "cloud", "AWS Cloud")
@@ -130,7 +130,7 @@ def aiops():
 
 
 def finops():
-    d = Diagram("finops", "FinOps reporting — multi-account cost visibility",
+    d = Diagram("finops", "FinOps reporting: multi-account cost visibility",
                 "Cost & Usage Report → Glue + Athena → scheduled Lambda → dashboard, XLS export and email summaries",
                 "IMPLEMENTED")
     d.group(30, 115, 1220, 655, "cloud", "AWS Cloud · AWS Organization")
@@ -141,7 +141,7 @@ def finops():
     d.group(325, 150, 905, 600, "account", "Reporting account")
     d.node("sched", 440, 260, A + "AmazonEventBridge.svg", "Amazon EventBridge", "Monthly schedule")
     d.node("fn", 680, 260, A + "AWSLambda.svg", "AWS Lambda", "Report generator\nPython 3.12")
-    d.node("glue", 440, 450, A + "AWSGlue.svg", "AWS Glue", "Data Catalog — CUR tables")
+    d.node("glue", 440, 450, A + "AWSGlue.svg", "AWS Glue", "Data Catalog: CUR tables")
     d.node("ath", 680, 450, A + "AmazonAthena.svg", "Amazon Athena", "Cost by project,\naccount, environment")
     d.node("rep", 920, 260, A + "AmazonSimpleStorageService.svg", "Amazon S3", "CSV per account\nJSON / HTML reports")
     d.node("cf", 1120, 260, A + "AmazonCloudFront.svg", "Amazon CloudFront", "Cost dashboard")
@@ -163,7 +163,7 @@ def finops():
 
 
 def occurrences():
-    d = Diagram("occurrences-ai", "Occurrences Report Intelligence — conversational analytics on Bedrock",
+    d = Diagram("occurrences-ai", "Occurrences Report Intelligence: conversational analytics on Bedrock",
                 "Ask questions in PT / EN / KO · Amazon Nova Pro writes and explains Athena queries over occurrence data",
                 "IN PRODUCTION")
     d.node("users", 85, 300, A + "Users.svg", "Business users", "PT · EN · KO")
@@ -193,7 +193,7 @@ def occurrences():
 
 
 def carrier():
-    d = Diagram("carrier-integration", "Carrier Integration Portal — event-driven logistics on SQS FIFO",
+    d = Diagram("carrier-integration", "Carrier Integration Portal: event-driven logistics on SQS FIFO",
                 "Ordered, idempotent shipment flow between LG systems and carriers · Transit Gateway to on-premises",
                 "IN PRODUCTION")
     d.group(30, 115, 205, 300, "dc", "On-premises")
@@ -226,7 +226,7 @@ def carrier():
 
 
 def sales_portal():
-    d = Diagram("sales-portal", "Sales ADM Portal — lift-and-shift from VMware to AWS",
+    d = Diagram("sales-portal", "Sales ADM Portal: lift-and-shift from VMware to AWS",
                 "Laravel/PHP and Java application · sa-east-1 · WAF IP allow-list · RDS for Oracle Multi-AZ",
                 "ARCHITECTURE")
     d.group(30, 115, 245, 400, "dc", "Current state")
@@ -264,7 +264,7 @@ def sales_portal():
 
 
 def analytics():
-    d = Diagram("analytics-library", "CDP Analytics Library — authenticated reporting portal",
+    d = Diagram("analytics-library", "CDP Analytics Library: authenticated reporting portal",
                 "Vue application · Cognito · CloudFront + S3 · API Gateway, Lambda and SES · provisioned with Terraform",
                 "IMPLEMENTED")
     d.node("users", 85, 300, A + "Users.svg", "Marketing teams", "LG Brazil")
@@ -291,7 +291,7 @@ def analytics():
 
 
 def gcp_data():
-    d = Diagram("gcp-data", "GCP data platform — pipelines and data warehouse",
+    d = Diagram("gcp-data", "GCP data platform: pipelines and data warehouse",
                 "Cloud Composer (Airflow) orchestration · Cloud Storage landing · BigQuery warehouse · three environments",
                 "OPERATIONS")
     d.node("src", 85, 520, A + "Documents.svg", "Data sources", "CDP & marketing")
@@ -318,7 +318,7 @@ def gcp_data():
 
 
 def eks_platform():
-    d = Diagram("eks-platform", "Occurrence management platform — microservices on Amazon EKS",
+    d = Diagram("eks-platform", "Occurrence management platform: microservices on Amazon EKS",
                 "Carrier APIs via API Gateway + VPC Link · EKS across 3 AZs · GitOps with Argo CD · SQS + DLQ · Direct Connect to on-premises",
                 "IN DEVELOPMENT")
     d.node("car", 60, 250, A + "Internet.svg", "Carriers", "Partner systems", s=44)

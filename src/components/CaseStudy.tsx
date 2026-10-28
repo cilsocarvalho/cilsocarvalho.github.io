@@ -9,7 +9,7 @@ const CaseStudy = ({ slug }: { slug: string }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const study = caseStudies.find((item) => item.slug === slug);
   if (!study) return null;
-  const src = `/architecture/${study.slug}.svg?v=2026-10b`;
+  const src = `/architecture/${study.slug}.svg?v=2026-10c`;
   return (
     <Dialog open={searchParams.get("project") === slug} onOpenChange={(open) => {
       setSearchParams((current) => {
@@ -31,7 +31,10 @@ const CaseStudy = ({ slug }: { slug: string }) => {
 
         <figure className="sheet mt-4 min-w-0 rounded-md p-2 sm:p-3">
           <div className="overflow-x-auto"><img src={src} alt={`Architecture diagram: ${study.title}`} width="1280" height="820" className="min-w-[760px] w-full rounded-sm border border-border bg-white" /></div>
-          <a href={src} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block px-1 text-sm font-medium text-primary hover:underline">Open the diagram full size</a>
+          <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 px-1 text-sm font-medium">
+            <a href={src} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Open the diagram full size</a>
+            <a href={`/case-studies/${study.slug}/`} className="text-primary hover:underline">Page for this case study</a>
+          </div>
         </figure>
 
         <div className="mt-6 grid gap-x-12 gap-y-8 lg:grid-cols-2">
