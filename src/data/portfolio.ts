@@ -3,13 +3,10 @@ export const GITHUB_URL = "https://github.com/cilsocarvalho";
 export const EMAIL = "cilsocarvalho@gmail.com";
 
 export const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Expertise", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "Case studies", href: "#projects" },
   { label: "Experience", href: "#experience" },
-
-  { label: "Credentials", href: "#certifications" },
+  { label: "Skills", href: "#skills" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -77,174 +74,13 @@ export const skillMatrix = [
 ];
 
 export const skillGroups = [
-  {
-    title: "Cloud Platforms",
-    icon: "Cloud",
-    items: [
-      "AWS EC2", "ECS", "EKS", "Lambda", "S3", "RDS", "VPC", "IAM",
-      "CloudWatch", "WAF", "Route 53", "CloudFront",
-      "GCP BigQuery", "Cloud Storage", "Apache Airflow / Composer",
-    ],
-  },
-  {
-    title: "DevOps & Automation",
-    icon: "Workflow",
-    items: [
-      "Terraform", "Docker", "Kubernetes", "Jenkins", "GitHub Actions",
-      "Bitbucket Pipelines", "ArgoCD", "CI/CD", "Infrastructure as Code",
-    ],
-  },
-  {
-    title: "Data & Databases",
-    icon: "Database",
-    items: [
-      "BigQuery", "Apache Airflow", "MySQL", "Oracle Database", "SQL",
-      "Data Pipeline Troubleshooting", "Data Validation",
-    ],
-  },
-  {
-    title: "Monitoring & Operations",
-    icon: "Activity",
-    items: [
-      "CloudWatch", "Grafana", "Prometheus", "Linux",
-      "Incident Investigation", "Production Support", "Troubleshooting",
-    ],
-  },
-  {
-    title: "Security & Governance",
-    icon: "ShieldCheck",
-    items: [
-      "IAM", "Access Control", "AWS WAF", "LGPD Awareness",
-      "Cloud Governance", "Well-Architected Practices",
-    ],
-  },
-  {
-    title: "FinOps & Optimization",
-    icon: "PiggyBank",
-    items: [
-      "AWS Cost Management", "Cloud Cost Reports", "Automation",
-      "AI-assisted Reporting", "Resource Optimization",
-    ],
-  },
-];
-
-export const projects = [
-  {
-    "slug": "aiops",
-    "title": "AI Assisted Operations",
-    "icon": "GitBranch",
-    "category": "Implemented workflow",
-    "summary": "Bedrock recommendations grounded in operational snapshots.",
-    "description": "Developed a Python AIOps workflow using Bedrock tool calling, runbooks, validated recommendations, and asynchronous Lambda and DynamoDB snapshots.",
-    "outcomes": [
-      "Read-only agent tools",
-      "Validated recommendation references",
-      "Asynchronous operational snapshots"
-    ],
-    "tags": [
-      "Bedrock",
-      "Python",
-      "Lambda",
-      "DynamoDB"
-    ],
-    "details": "My contribution: operational data integration and AI-assisted automation. The agent advises on incidents and best practices; it does not execute remediation. No unverified model-performance claims are made."
-  },
-  {
-    "slug": "hybrid-connectivity",
-    "title": "Hybrid AWS Connectivity",
-    "icon": "Network",
-    "category": "Implemented and assessed",
-    "summary": "Hybrid access with cost-conscious networking decisions.",
-    "description": "Worked on Client VPN, Transit Gateway, DNS, routing, and security controls. Optimized Route 53 Resolver infrastructure while preserving VPN access.",
-    "outcomes": [
-      "VPN access preserved",
-      "Resolver cost optimization",
-      "Network alternatives assessed"
-    ],
-    "tags": [
-      "Client VPN",
-      "Transit Gateway",
-      "Terraform"
-    ],
-    "details": "My contribution: network analysis, infrastructure changes, and connectivity checks. A reverse-tunnel bridge was assessed as an alternative; it was not deployed or verified in the documented work."
-  },
-  {
-    "slug": "finops",
-    "title": "FinOps Cost Visibility",
-    "icon": "LineChart",
-    "category": "Implemented",
-    "summary": "Monthly cloud costs by project, account, and environment.",
-    "description": "Developed project cost views, chargeback reporting, and Excel-compatible exports. A shared cost model keeps dashboard totals and exported reports consistent.",
-    "outcomes": [
-      "Monthly cost views",
-      "Consistent dashboard and export totals",
-      "Validated release"
-    ],
-    "tags": [
-      "AWS",
-      "FinOps",
-      "CloudFront"
-    ],
-    "details": "My contribution: cost-model integration, reporting controls, exports, and release validation. Internal financial data and account identifiers are excluded."
-  },
-  {
-    "slug": "analytics-library",
-    "title": "CDP Analytics Library",
-    "icon": "Database",
-    "category": "Implemented",
-    "summary": "Authenticated portal for analytics and business reporting.",
-    "description": "Developed a Vue portal supported by Terraform-managed AWS infrastructure, with Cognito authentication, report delivery, and protected email notification APIs.",
-    "outcomes": [
-      "Cognito authentication",
-      "Protected API and SES notifications",
-      "Shared reporting interface"
-    ],
-    "tags": [
-      "Terraform",
-      "Vue",
-      "Cognito",
-      "Lambda"
-    ],
-    "details": "My contribution: portal development, cloud infrastructure, integrations, and deployment validation. Corporate reports and member data are excluded."
-  },
-  {
-    "slug": "sales-portal",
-    "title": "Sales Portal Migration Architecture",
-    "icon": "ServerCog",
-    "category": "Architecture proposal",
-    "summary": "AWS migration planning for an on-premises sales portal.",
-    "description": "Prepared current-state and target-state architecture diagrams, cost considerations, and executive presentations for migration planning and technical review.",
-    "outcomes": [
-      "As-is and to-be architecture",
-      "AWS cost considerations",
-      "Executive decision materials"
-    ],
-    "tags": [
-      "AWS",
-      "Migration",
-      "Architecture"
-    ],
-    "details": "My contribution: architecture documentation and migration planning. This is a proposal, not a completed production migration. Internal topology and infrastructure identifiers are excluded."
-  },
-  {
-    "slug": "gcp-data",
-    "title": "GCP Data Operations",
-    "icon": "Database",
-    "category": "Operational support",
-    "summary": "BigQuery and Cloud Composer workflows for analytics.",
-    "description": "Supported data workflows and investigated Airflow dependencies, configuration, imports, and task failures, with SQL validation and operational troubleshooting.",
-    "outcomes": [
-      "Airflow troubleshooting",
-      "SQL validation",
-      "Data workflow support"
-    ],
-    "tags": [
-      "GCP",
-      "BigQuery",
-      "Airflow"
-    ],
-    "details": "My contribution: data workflow troubleshooting and validation. No unsupported volume, availability, or performance metrics are claimed."
-  }
+  { title: "AWS compute & containers", icon: "Cloud", items: ["Amazon ECS", "Amazon EKS", "EC2", "Lambda", "Elastic Beanstalk", "Docker", "Kubernetes"] },
+  { title: "Networking & hybrid", icon: "Cloud", items: ["VPC design", "Transit Gateway", "Site-to-Site VPN", "BGP", "Client VPN", "Route 53", "CloudFront", "AWS WAF"] },
+  { title: "Infrastructure as code & delivery", icon: "Workflow", items: ["Terraform", "CloudFormation", "GitHub Actions", "Jenkins", "Bitbucket Pipelines", "CI/CD"] },
+  { title: "Data & databases", icon: "Database", items: ["Aurora", "RDS (Oracle, MySQL)", "DynamoDB", "ElastiCache", "Athena", "Glue", "BigQuery", "Cloud Composer / Airflow"] },
+  { title: "Observability & operations", icon: "Activity", items: ["CloudWatch", "Prometheus", "Grafana", "Linux (RHEL, Ubuntu)", "Incident response"] },
+  { title: "Security, governance & FinOps", icon: "ShieldCheck", items: ["AWS Organizations", "Control Tower", "IAM", "GuardDuty", "Secrets Manager", "Cost & Usage Report", "Cost allocation"] },
+  { title: "AI for operations", icon: "Activity", items: ["Amazon Bedrock", "Amazon Nova", "Tool calling", "Python"] },
 ];
 
 export const timeline = [

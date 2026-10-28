@@ -6,12 +6,12 @@ const Certifications = () => (
   <Section
     id="certifications"
     eyebrow="Certifications"
-    title="Certifications and verified badges"
-    subtitle="Official credential links and dates checked against my public Credly wallet in October 2026."
+    title="Certifications"
+    subtitle="Each one links to its verified Credly badge."
   >
     <div className="grid gap-5 md:grid-cols-2">
       {certifications.filter((c) => c.tier === "primary").map((cert) => (
-        <div key={cert.name} className="glass-card neon-border flex items-start gap-4 rounded-2xl p-6">
+        <div key={cert.name} className="flex items-start gap-4 rounded-lg border border-border p-6">
           <div className="mt-0.5 rounded-lg bg-accent/15 p-2.5 text-accent">
             <Award className="h-6 w-6" />
           </div>
@@ -27,8 +27,8 @@ const Certifications = () => (
       ))}
     </div>
     <div className="mt-8">
-      <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Foundational and earlier certifications</h3>
-      <ul className="mt-4 divide-y divide-border rounded-2xl border border-border bg-background/30">
+      <h3 className="font-semibold">Foundational and earlier certifications</h3>
+      <ul className="mt-4 divide-y divide-border rounded-lg border border-border">
         {certifications.filter((c) => c.tier !== "primary").map((cert) => (
           <li key={cert.name} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-5 py-3 text-sm">
             <span className="font-medium">{cert.name}</span>
@@ -40,7 +40,7 @@ const Certifications = () => (
         ))}
       </ul>
     </div>
-    <details className="mt-8 rounded-2xl border border-border bg-background/30 p-5 sm:p-6">
+    <details className="mt-8 rounded-lg border border-border p-5 sm:p-6">
       <summary className="cursor-pointer font-display text-lg font-semibold text-primary">Training badges ({trainingBadges.length})</summary>
       <p className="mt-3 text-sm text-muted-foreground">Course and training achievements, separate from professional certifications.</p>
       <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

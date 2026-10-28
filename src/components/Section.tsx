@@ -2,23 +2,19 @@ import { ReactNode } from "react";
 
 interface SectionProps {
   id: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   children: ReactNode;
   className?: string;
 }
 
-const Section = ({ id, eyebrow, title, subtitle, children, className = "" }: SectionProps) => (
-  <section id={id} className={`relative py-20 lg:py-28 ${className}`}>
+const Section = ({ id, title, subtitle, children, className = "" }: SectionProps) => (
+  <section id={id} aria-labelledby={`${id}-title`} className={`border-t border-border py-20 lg:py-24 ${className}`}>
     <div className="container">
       <div className="mb-12 max-w-2xl">
-        <div className="mb-4 flex items-center gap-3">
-          <span className="h-px w-8 bg-gradient-to-r from-primary to-transparent" />
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">{eyebrow}</p>
-        </div>
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-        {subtitle && <p className="mt-4 leading-relaxed text-muted-foreground">{subtitle}</p>}
+        <h2 id={`${id}-title`} className="text-3xl font-semibold sm:text-[2.5rem] sm:leading-[1.1]">{title}</h2>
+        {subtitle && <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{subtitle}</p>}
       </div>
       {children}
     </div>

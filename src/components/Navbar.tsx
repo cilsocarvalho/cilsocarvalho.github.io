@@ -16,27 +16,25 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
+        scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-background"
       }`}
     >
       <nav className="container flex h-16 items-center justify-between">
-        <a href="#home" className="font-display text-lg font-bold tracking-tight">
-          <span className="gradient-text">Cilso</span> Carvalho
-        </a>
+        <a href="#home" className="text-lg font-semibold tracking-tight">Cilso Carvalho</a>
 
         <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-md px-3 py-2 text-[15px] text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
           ))}
-          <Button asChild variant="hero" size="sm" className="ml-2">
+          <Button asChild size="sm" className="ml-3">
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-              <Linkedin className="h-4 w-4" /> Connect
+              <Linkedin className="h-4 w-4" /> Contact on LinkedIn
             </a>
           </Button>
         </div>

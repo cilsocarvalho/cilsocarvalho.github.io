@@ -4,28 +4,32 @@
 
 @layer base {
   :root {
-    --background: 45 24% 96%;
-    --foreground: 204 25% 14%;
-    --card: 0 0% 100%; --card-foreground: 204 25% 14%;
-    --popover: 0 0% 100%; --popover-foreground: 204 25% 14%;
-    --primary: 170 80% 22%; --primary-foreground: 0 0% 100%;
-    --secondary: 170 20% 92%; --secondary-foreground: 170 80% 20%;
-    --muted: 40 15% 92%; --muted-foreground: 204 12% 38%;
-    --accent: 170 80% 22%; --accent-foreground: 0 0% 100%;
+    /* Paper #FFFFFF · Ink #1B2430 · Steel #5B6673 · Hairline #E2E6EB · Console #F3F5F8 · Region teal #00797B */
+    --background: 0 0% 100%;
+    --foreground: 214 28% 15%;
+    --card: 0 0% 100%; --card-foreground: 214 28% 15%;
+    --popover: 0 0% 100%; --popover-foreground: 214 28% 15%;
+    --primary: 181 100% 24%; --primary-foreground: 0 0% 100%;
+    --secondary: 213 25% 96%; --secondary-foreground: 214 28% 15%;
+    --muted: 213 25% 96%; --muted-foreground: 211 12% 40%;
+    --accent: 181 100% 24%; --accent-foreground: 0 0% 100%;
     --destructive: 0 70% 40%; --destructive-foreground: 0 0% 100%;
-    --border: 200 12% 82%; --input: 200 12% 82%; --ring: 170 80% 22%;
-    --radius: .75rem;
-    --cyan: 170 80% 22%; --blue: 204 40% 32%; --purple: 170 50% 28%;
+    --border: 213 16% 90%; --input: 213 16% 86%; --ring: 181 100% 24%;
+    --radius: .5rem;
+    --cyan: 181 100% 24%; --blue: 214 28% 15%; --purple: 181 100% 24%;
     --gradient-primary: linear-gradient(hsl(var(--primary)),hsl(var(--primary)));
     --gradient-text: linear-gradient(hsl(var(--primary)),hsl(var(--primary)));
     --gradient-surface: linear-gradient(white,white);
     --gradient-glow: none;
-    --shadow-glow: 0 4px 12px hsl(204 25% 14% / .08);
-    --shadow-card: 0 8px 30px hsl(204 25% 14% / .04);
+    --shadow-glow: none;
+    --shadow-card: none;
+    --console: 213 25% 96%;
+    --ok: 104 97% 26%;
   }
   * { @apply border-border; }
-  body { @apply bg-background text-foreground; font-family: 'Work Sans',sans-serif; }
-  h1,h2,h3,h4 { font-family: 'Work Sans',sans-serif; }
+  body { @apply bg-background text-foreground; font-family: 'Instrument Sans',system-ui,sans-serif; font-size: 17px; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4 { font-family: 'Instrument Sans',system-ui,sans-serif; letter-spacing: -0.02em; text-wrap: balance; }
+  p { text-wrap: pretty; }
   html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
   :focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
 }
@@ -36,11 +40,11 @@
   .neon-border { position: relative; }
   .neon-border::before { content: none; pointer-events: none; }
   .text-glow { text-shadow: none; }
-  .font-display { font-family: 'Work Sans',sans-serif; }
+  .font-display { font-family: 'Instrument Sans',system-ui,sans-serif; }
+  .bg-console { background: hsl(var(--console)); }
+  .text-ok { color: hsl(var(--ok)); }
 }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
 
-.hero-editorial { background: radial-gradient(ellipse at 10% 10%,hsl(170 35% 88% / .45),transparent 55%),hsl(var(--background)); }
-.hero-editorial::before { content: ''; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(hsl(170 30% 25% / .04) 1px,transparent 1px),linear-gradient(90deg,hsl(170 30% 25% / .04) 1px,transparent 1px); background-size:64px 64px; mask-image:linear-gradient(to bottom,black,transparent); }
-.hero-editorial > div { position:relative; }
-#projects { background: hsl(40 15% 93%); }
+.sheet { background: hsl(var(--console)); border: 1px solid hsl(var(--border)); }
+.sheet img { display: block; }

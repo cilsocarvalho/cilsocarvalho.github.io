@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
@@ -15,14 +14,13 @@ const Index = () => (
     <main id="main">
       <Hero />
       <Projects />
-      <About />
-      <Skills />
       <Timeline />
+      <Skills />
       <Certifications />
 
       <Contact />
     </main>
-    <footer className="border-t border-border/60 py-8">
+    <footer className="border-t border-border py-8">
       <div className="container flex flex-col items-center justify-between gap-3 text-sm text-muted-foreground sm:flex-row">
         <span>© {new Date().getFullYear()} Cilso Carvalho — Cloud &amp; DevOps Engineer</span>
         <div className="flex gap-4">
